@@ -1,0 +1,42 @@
+name: Github Pages Release Pipeline
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+
+    steps:
+      - name: Actions Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Initialize Dependencies
+        run: |
+          npm ci
+          npm run build
+
+      - name: Release to Github Pages
+        run: |
+          cd build
+          git init
+          git config --global user.email dev.jteano@gmail.com
+          git config --global user.name JaysonNotFound
+          git status
+          git remote add origin https://${{secrets.REPO_ACCESS}}@github.com/JaysonNotFound/jaysonnotfound.github.io.git
+          git checkout -b master
+          git add .
+          git commit -m "github pages release"
+          git push origin master -f
