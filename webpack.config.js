@@ -14,8 +14,6 @@ const config = {
     filename: "bundle.[fullhash].js",
   },
 
-  // devtool: "eval-cheap-source-map",
-
   plugins: [new HTMLWebpackPlugin({ template: "./index.html" })],
 
   module: {
