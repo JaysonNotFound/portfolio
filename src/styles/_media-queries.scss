@@ -1,0 +1,47 @@
+@mixin mobile {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+
+@mixin home_image {
+  @media screen and (min-width: 568px) {
+    @content;
+  }
+}
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key ==mobile) {
+      @include mobile {
+        @content
+      }
+    }
+
+    @if ($key ==tablet) {
+      @include tablet {
+        @content
+      }
+    }
+
+    @if ($key ==desktop) {
+      @include desktop {
+        @content
+      }
+    }
+  }
+}

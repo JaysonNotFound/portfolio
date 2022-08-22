@@ -1,0 +1,108 @@
+@import '../../styles/variables';
+@import '../../styles/reusables';
+@import '../../styles/media-queries';
+
+
+
+.navbar {
+  @include media(mobile, tablet) {
+    &.container {
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: $mb-1-5;
+      padding-right: $mb-1-5;
+    }
+
+    background-color: $body-color;
+  }
+
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &_logo {
+    font-size: $h1-font-size;
+    font-weight: $font-bold;
+    line-height: inherit;
+    white-space: nowrap;
+
+    .first_name {
+      color: $dark;
+    }
+
+    .last_name {
+      color: $carrot-orange;
+    }
+  }
+
+  &_menu {
+    @include media(mobile, tablet) {
+      justify-self: flex-end;
+      margin-top: $header-height;
+      z-index: -9999;
+      position: fixed;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      background-color: $body-color;
+      padding: 2rem 1.5em 2rem;
+      box-shadow: 0 2px 2px -2px rgba($color: #000000, $alpha: 0.15);
+      border-radius: 0 0 1.5rem 1.5rem;
+      transition: .3s;
+    }
+  }
+
+  &_list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+
+    @include desktop {
+      &.grid {
+        display: flex;
+        gap: 3rem;
+      }
+    }
+  }
+
+  &_link {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    font-size: $normal-font-size;
+    font-weight: $font-medium;
+    color: $title-color;
+
+    &:hover {
+      color: $first-color;
+    }
+  }
+
+  &_icon {
+    font-size: $normal-font-size;
+    margin-right: 0.3rem;
+  }
+
+
+
+  &_toggle {
+    @include desktop {
+      display: none;
+    }
+
+    .navbar_icon {
+      font-size: calc($normal-font-size * 1.25);
+    }
+
+    color: $first-color;
+    font-weight: $font-medium;
+
+    &:hover {
+      color: $first-color-lighter;
+    }
+  }
+
+  .show_menu {
+    top: 0;
+  }
+}
