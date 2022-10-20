@@ -15,7 +15,6 @@ const App = () => {
       </Header>
       <main className="main">
         <Home />
-        <Skills />
       </main>
     </>
   );

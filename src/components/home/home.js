@@ -21,6 +21,7 @@ function Home() {
   ];
   const introduction =
     "Software Engineer with strong technical skills gained 4 years of experience building and maintaining applications for multiple platform (ex. Android, iOS, Web, Desktop, and Server-side).";
+
   return (
     <section className="home section" id="home">
       <div className="home_container container grid">
@@ -36,9 +37,6 @@ function Home() {
                 <i className={social.icon}></i>
               </a>
             ))}
-          </div>
-          <div className="home_image">
-            <Blob />
           </div>
           <div className="home_data">
             <h4 className="home_greet">Hi, I'am</h4>
