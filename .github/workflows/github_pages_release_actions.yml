@@ -32,7 +32,7 @@ jobs:
           git config --global user.email dev.jteano@gmail.com
           git config --global user.name JaysonNotFound
           git status
-          git remote add origin https://${{secrets.REPO_ACCESS}}@github.com/JaysonNotFound/jaysonnotfound.github.io-JaysonTeano.git
+          git remote add origin https://${{secrets.REPO_ACCESS}}@github.com/JaysonNotFound/JaysonTeano.git
           git checkout -b master
           git add .
           git commit -m "github pages release"
