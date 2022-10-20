@@ -1,8 +1,23 @@
 import React from "react";
-import "./app.scss";
+
+import Header from "./components/header/header";
+import Navbar from "./components/navbar/navbar";
+import Home from "./components/home/home";
+import Skills from "./components/skills/skills";
+
+import "./styles/app.scss";
 
 const App = () => {
-  return <h1>Jayson Teano</h1>;
+  return (
+    <>
+      <Header>
+        <Navbar />
+      </Header>
+      <main className="main">
+        <Home />
+      </main>
+    </>
+  );
 };
 
 export default App;

@@ -1,1 +1,1 @@
-{ "files.associations": { "*.js": "javascriptreact" } }
+{ "files.associations": { "*.js": "javascriptreact" }, "editor.tabSize": 2 }

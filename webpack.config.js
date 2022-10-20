@@ -14,8 +14,6 @@ const config = {
     filename: "bundle.[fullhash].js",
   },
 
-  // devtool: "eval-cheap-source-map",
-
   plugins: [new HTMLWebpackPlugin({ template: "./index.html" })],
 
   module: {
@@ -23,6 +21,17 @@ const config = {
       {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[hash]-[name].[ext]",
+            },
+          },
+        ],
       },
       {
         test: /\.js$/,
